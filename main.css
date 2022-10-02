@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#nav, #footer {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100px;
+    padding-left: 20px;
+    margin: 0;
+    background-color: #2e2e2e;
+    color: white;
+
+}
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nav ul {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 40%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#nav ul li {
+    min-width: 70px;
+    list-style-type: none;
+    border-left: solid 1px #949494;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+#nav ul li:hover {
+    background-color: #00b383;
+    transition: 1s;
+}
+main {
+    width: 50vw;
+    margin: 0 auto;
+    height: 75vh;
+}
+
+h1 {
+    font-family: 'Yeseva One', cursive;
+    text-align: center;
+}
+
+footer {
+    padding: 30px 0;
+}
+
+/* the CSS pop-up ad gimmick - playing with animations */
+.ad {
+    background-color: #949494;
+    width: 200px;
+    min-width: fit-content;
+    height: 70px;
+    margin-right: 70px;
+    visibility: hidden;
+    border: 3px groove #949494
+}
+.ad header {
+    background-color: navy;
+    width: 100%;
+}
+.ad:nth-of-type(3n-1) {
+    margin-top: -20px;
+    margin-left: 15px;
+    height: 200px;
+    animation: 2s appear;
+    animation-fill-mode: forwards;
+
+}
+.ad:nth-of-type(3n-2) {
+    animation: 1.5s appear;
+    animation-fill-mode: forwards;
+}
+.ad:nth-of-type(3n) {
+    margin-top: 70px;
+    margin-left: 20px;
+    height: 130px;
+
+    animation: 4s appear;
+    animation-fill-mode: forwards;
+}
+
+
+.ad::after {
+    color: white;
+    font-family: cursive;
+    content: "a CSS pop up!";
+}
+
+#ads {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    top: 25vh;
+    left: 20vw;
+    width: 70vw;
+    height: 35vw;
+
+    /* playing with animation stuff */
+    /* makes #ads spontaneously appear after 3 seconds*/
+    animation: 3s appear;
+
+    /* fill-mode forward makes sure the calculated final result persists after animation ends*/
+    animation-fill-mode: forwards;
+
+    visibility: hidden;
+}
+
+/* defines a custom animation for ads to appear */
+/* starts hidden*/
+@keyframes appear {
+    99% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
